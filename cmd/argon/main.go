@@ -8,6 +8,7 @@ import (
 	"github.com/qrv1t9/webdav/internal/config"
 	"golang.org/x/crypto/argon2"
 	"log"
+	"os"
 )
 
 func main() {
@@ -16,11 +17,15 @@ func main() {
 	password := flag.String("pass", "", "your password")
 	flag.Parse()
 
-	cfg := config.MustLoad(*path)
+	if *path == "" {
+		*path = os.Getenv("CONFIG_PATH")
+	}
 
 	if *password == "" {
 		log.Fatal("password is required")
 	}
+
+	cfg := config.MustLoad(*path)
 
 	salt, err := generateCryptographicSalt(cfg.Argon.ArgonSaltLength)
 	if err != nil {

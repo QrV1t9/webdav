@@ -1,0 +1,8 @@
+app_env: "production"
+dav_path: "./tmp"
+dav_prefix: "/"
+port: 5657
+tls: false
+user:
+  username: "qrv1t9"
+  password: "your password"

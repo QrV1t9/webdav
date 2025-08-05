@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+  url-shortener:
+    image: ghcr.io/qrv1t9/webdav
+    ports:
+      - "5657:5657"
+    environment:
+      - CONFIG_PATH=./config/prod.yaml
+    volumes:
+      - ./config/prod.yaml:/app/config/prod.yaml

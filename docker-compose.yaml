@@ -9,3 +9,4 @@ services:
       - CONFIG_PATH=./config/prod.yaml
     volumes:
       - ./config/prod.yaml:/app/config/prod.yaml
+      - ./tmp:/app/tmp
